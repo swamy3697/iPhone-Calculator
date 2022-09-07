@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	
+	<style>
+	
+	html{
+position: fixed;
+top: 0;
+left: 0;
+height:100%;
+width: 100%;
+padding: 0;
+margin: 0;
+background-color: black;
+	
+}
+body {
+display: block;
+height:100%;
+width: 100%;
+padding: 0;
+margin: 0;
+background-color:black;
+	
+}
+#up{
+position: relative;
+top: 0;
+left: 0;
+
+height:25%;
+width: 100%;
+padding: 0;
+margin: 0;
+background-color:black;
+	
+}
+#down{
+
+height:75%;
+width: 105%;
+padding: 0;
+margin: 0;
+background-color:black;
+	
+}
+p{
+	width:fit-content;
+	height:fit-content;
+	position:absolute;
+	right: 0;
+	bottom: 0;
+	margin:0;
+	padding:0;
+	font-size: 70px;
+	color: white;
+	
+	
+}
+table{
+padding:0;
+margin:0;
+
+	width:95%;
+	border:1px solid black;
+	height:100%;
+	text-align: center;
+	table-layout: fixed;
+	
+}
+.symbols{
+	background-color: black;
+	border-radius:150px;
+	color: white;
+	font-size: 40px;
+	margin: 5px;
+	padding: 5px;
+}
+.uprow{
+	background-color:#a5a5a5;
+}
+.siderow{
+	background-color:#ff9f0c;
+}
+.mid{
+	background-color: #333333;
+}
+	</style>
+	
+	
+	
+	<script>
+	
+	var Value = " " ; 
+
+//function to assign values
+function value(input)
+{
+  input=String(input);  Value+=input;
+   document.getElementById("val").innerHTML = Value ;
+   
+}
+
+//To clear everything on output display
+function clr()
+{
+	document.getElementById("val").innerHTML = "" ;
+
+	  Value = " ";
+}
+
+//To cancel last digit
+function back()
+{
+Value=String(Value);
+
+if(Value.length-1==0||Value=="INVALID"||Value=="undefined"||Value=="Infinity")
+{	clr();	 }
+else
+{
+Value =Value.substring(0,Value.length-1);
+}   
+	document.getElementById("val").innerHTML = Value ;
+	
+}
+
+//To evaluate
+function eq()
+{ 
+
+var len = Value.length-1;
+ document.getElementById("val").innerHTML = Value ;
+
+//to catch any error
+try 
+{	Value = String(eval(Value)) ;	}
+catch 
+{	Value = "INVALID";	}  
+ 
+
+   
+}
+function dev(){
+	alert("on development😃")
+}
+
+alert ('to backward click on value 👍🏻')
+
+	
+	</script>
+	
+	
+		<title>Page Title</title>
+	</head>
+	<body>
+	<div id="up" onclick="back()">
+	<p id="val">0</p>
+	</div>
+	<div id="down">
+	<table cellspacing="5">
+	
+	<tr>
+	
+	<td class="symbols uprow" onclick="clr()">AC</td>
+
+	<td class="symbols uprow"onclick="dev()">+/-</td>
+
+<td class="symbols uprow" onclick="value('%')">%</td>
+
+<td class="symbols siderow"onclick="value('/')" >/</td>
+	
+	</tr>
+	<tr>
+	<td class="symbols mid" onclick="value(1)">1</td>
+	<td class="symbols mid"onclick="value(2)">2</td>
+	<td class="symbols mid" onclick="value(3)">3</td>
+	<td class="symbols siderow" onclick="value('')"></td>
+	
+	
+	</tr>
+	
+	<tr>
+	<td class="symbols mid" onclick="value(4)">4</td>
+	<td class="symbols mid" onclick="value(5)">5</td>
+	<td class="symbols mid" onclick="value(6)">6</td>
+	<td class="symbols siderow" onclick="value('-')">-</td>
+	
+	
+	</tr>
+	
+	
+	<tr>
+	<td class="symbols mid" onclick="value(7)">7</td>
+	<td class="symbols mid" onclick="value(8)">8</td>
+	<td class="symbols mid" onclick="value(9)">9</td>
+	<td class="symbols siderow" onclick="value('+')">+</td>
+	
+	
+	</tr>
+	
+	<tr>
+	<td class="symbols mid" colspan ="2" onclick="value(0)">0</td>
+	<td class="symbols mid" onclick="value('.')">.</td>
+	<td class="symbols siderow" onclick="eq()">=</td>
+	
+	
+	</tr>
+	
+	
+	
+	
+	</table>
+	</div>
+	
+	</body>
+</html>
