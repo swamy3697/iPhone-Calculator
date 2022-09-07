@@ -131,14 +131,14 @@ function eq()
 { 
 
 var len = Value.length-1;
- document.getElementById("val").innerHTML = Value ;
-
+ 
 //to catch any error
 try 
 {	Value = String(eval(Value)) ;	}
 catch 
 {	Value = "INVALID";	}  
  
+document.getElementById("val").innerHTML = Value ;
 
    
 }
